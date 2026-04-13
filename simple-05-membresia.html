@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple App — Membresia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#0F2336;--navy-dk:#0a1a28;
+  --blue:#7A97AB;--blue-lt:#A8BEC9;--blue-dk:#5d7a8e;
+  --sage:#A3A983;--sage-dk:#7A7E5E;--sage-lt:#C5C7A5;--sage-bg:#F3F4EB;
+  --page-bg:#EEEDE7;--screen-bg:#F5F4EE;
+  --card-bg:#FFFFFF;--card-bg-alt:#FAF9F4;
+  --surface-hi:#FFFFFF;--surface-low:#F0EFE9;
+  --text:#0F2336;--text-md:#374151;--text-sm:#6B7280;
+  --border:#E0DDD4;--border-soft:#EBE8DF;--border-strong:#CBC7BB;
+  --success:#7A9D6B;--danger:#B85450;--warning:#C4913A;
+  --r-sm:8px;--r:12px;--r-lg:20px;--r-xl:28px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);background:var(--page-bg);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+}
+
+/* Phone frame */
+.phone{
+  width:360px;height:740px;
+  background:#0a0a0a;border-radius:54px;padding:11px;
+  box-shadow:0 30px 80px -20px rgba(15,35,54,.25),0 12px 32px -12px rgba(15,35,54,.15);
+  position:relative;flex-shrink:0;
+}
+.phone::before{
+  content:'';position:absolute;top:22px;left:50%;
+  transform:translateX(-50%);width:110px;height:30px;
+  background:#000;border-radius:22px;z-index:10;
+}
+.screen{
+  width:100%;height:100%;background:var(--screen-bg);
+  border-radius:43px;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+}
+
+/* Status bar */
+.status{
+  height:48px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:space-between;padding:16px 32px 0;
+  font-size:13px;font-weight:600;color:var(--text);
+}
+.status-right{display:flex;align-items:center;gap:6px}
+.status-dot{width:17px;height:10px;border:1px solid var(--text);border-radius:2px;position:relative}
+.status-dot::after{content:'';position:absolute;inset:1px;background:var(--text);border-radius:1px}
+
+/* App header */
+.app-header{padding:16px 24px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.app-back,.app-icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--surface-hi);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text);
+}
+.app-wordmark{font-size:18px;font-weight:300;color:var(--text);letter-spacing:-.3px}
+.app-wordmark strong{font-weight:600}
+
+/* Content */
+.content{flex:1;overflow:hidden;padding:0 24px 24px;display:flex;flex-direction:column;gap:18px}
+.page-meta{margin-top:6px}
+.eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sage-dk);
+  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+}
+.eyebrow::before{content:'';width:16px;height:1px;background:var(--sage)}
+.page-h{font-size:27px;font-weight:700;letter-spacing:-.7px;line-height:1.1;color:var(--text)}
+.page-h em{font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--blue)}
+.page-sub-sm{font-size:13px;color:var(--text-sm);margin-top:5px;line-height:1.5}
+
+
+.mem-card{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:22px;position:relative;overflow:hidden}
+.mem-card::before{content:'';position:absolute;bottom:-65px;left:-35px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(163,169,131,.2) 0%,transparent 60%)}
+.mem-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px;position:relative}
+.mem-plan{font-size:19px;font-weight:700;color:#fff;margin-bottom:3px;position:relative}
+.mem-plan em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:var(--sage-lt)}
+.mem-since{font-size:11px;color:rgba(255,255,255,.55);position:relative;margin-bottom:20px}
+.mem-divider{height:1px;background:rgba(255,255,255,.12);margin:16px 0;position:relative}
+.mem-row{display:flex;justify-content:space-between;align-items:center;position:relative}
+.mem-row-lbl{font-size:11px;color:rgba(255,255,255,.55)}
+.mem-row-val{font-size:14px;font-weight:700;color:#fff}
+.mem-row-val strong{color:var(--sage-lt)}
+.row-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:13px}
+.ri-ic{width:36px;height:36px;border-radius:9px;background:var(--surface-low);display:flex;align-items:center;justify-content:center;color:var(--text)}
+.ri-body{flex:1}
+.ri-label{font-size:12px;font-weight:600;color:var(--text)}
+.ri-sub{font-size:10.5px;color:var(--text-sm);margin-top:1px}
+.ri-chev{color:var(--text-sm);font-size:15px}
+.ri-pill{background:var(--sage-bg);color:var(--sage-dk);font-size:10px;font-weight:700;padding:4px 8px;border-radius:100px;border:1px solid rgba(163,169,131,.3)}
+
+</style>
+</head>
+<body>
+<div class="phone"><div class="screen">
+
+    <div class="status">
+      <span>10:26</span>
+      <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+    </div>
+    <div class="app-header">
+      <div class="app-back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+      <div class="app-wordmark">simple<strong>.</strong></div>
+      <div style="width:38px"></div>
+    </div>
+    
+<div class="content">
+
+        <div class="page-meta">
+          <div class="eyebrow">Tu plan</div>
+          <div class="page-h">Mi <em>membresía</em></div>
+        </div>
+        <div class="mem-card">
+          <div class="mem-label">Plan activo</div>
+          <div class="mem-plan">Simple <em>Essential</em></div>
+          <div class="mem-since">Miembro desde mar 2026</div>
+          <div class="mem-divider"></div>
+          <div class="mem-row">
+            <span class="mem-row-lbl">Siguiente pago</span>
+            <span class="mem-row-val">$349<strong style="font-size:11px;margin-left:3px">MXN</strong></span>
+          </div>
+          <div class="mem-row" style="margin-top:11px">
+            <span class="mem-row-lbl">Fecha de cobro</span>
+            <span class="mem-row-val">04 may 2026</span>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="ri-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+          <div class="ri-body">
+            <div class="ri-label">American Express ···· 1017</div>
+            <div class="ri-sub">Método de pago principal</div>
+          </div>
+          <div class="ri-chev">›</div>
+        </div>
+        <div class="row-item">
+          <div class="ri-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 13h6M9 17h6"/></svg></div>
+          <div class="ri-body">
+            <div class="ri-label">Estado de cuenta</div>
+            <div class="ri-sub">Ver historial de pagos</div>
+          </div>
+          <div class="ri-chev">›</div>
+        </div>
+        <div class="row-item">
+          <div class="ri-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div>
+          <div class="ri-body">
+            <div class="ri-label">Datos de facturación</div>
+            <div class="ri-sub">RFC y razón social</div>
+          </div>
+          <div class="ri-pill">Agregar</div>
+        </div>
+        <div class="row-item">
+          <div class="ri-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="ri-body">
+            <div class="ri-label">Dirección de servicio</div>
+            <div class="ri-sub">Río Nazas 154, Cuauhtémoc</div>
+          </div>
+          <div class="ri-chev">›</div>
+        </div>
+        
+</div>
+</div></div>
+</body>
+</html>
