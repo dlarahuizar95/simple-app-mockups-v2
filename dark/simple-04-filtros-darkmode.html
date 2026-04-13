@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple App — Filtros</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+:root[data-theme="dark"]{
+  --navy:#0F2336;--navy-dk:#0a1a28;
+  --blue:#7A97AB;--blue-lt:#A8BEC9;--blue-dk:#5d7a8e;
+  --sage:#A3A983;--sage-dk:#7A7E5E;--sage-lt:#C5C7A5;--sage-bg:#F3F4EB;
+  --page-bg:#EEEDE7;--screen-bg:#F5F4EE;
+  --card-bg:#FFFFFF;--card-bg-alt:#FAF9F4;
+  --surface-hi:#FFFFFF;--surface-low:#F0EFE9;
+  --text:#0F2336;--text-md:#374151;--text-sm:#6B7280;--text-inv:#F5F4EE;
+  --border:#E0DDD4;--border-soft:#EBE8DF;--border-strong:#CBC7BB;
+  --success:#7A9D6B;--danger:#B85450;--warning:#C4913A;
+  --hero-bg:var(--navy);
+  --hero-border:transparent;
+  --r-sm:8px;--r:12px;--r-lg:20px;--r-xl:28px;
+  --shadow-phone:0 30px 80px -20px rgba(15,35,54,.25),0 12px 32px -12px rgba(15,35,54,.15);
+}
+:root[data-theme="dark"]{
+  --navy:#0a1520;--navy-dk:#060d15;
+  --blue:#9AB5C8;--blue-lt:#BDD0DB;--blue-dk:#6A8295;
+  --sage:#B8BE99;--sage-dk:#9EA384;--sage-lt:#D4D7B8;--sage-bg:#1E2319;
+  --page-bg:#0A0D12;--screen-bg:#14181E;
+  --card-bg:#1C2029;--card-bg-alt:#22272F;
+  --surface-hi:#242933;--surface-low:#0F1319;
+  --text:#F5F4EE;--text-md:#C5C5BE;--text-sm:#8A8A83;--text-inv:#0A0D12;
+  --border:#2A2F38;--border-soft:#22262E;--border-strong:#3A404B;
+  --success:#9DBD8D;--danger:#D4756F;--warning:#E0AC5D;
+  --hero-bg:#242933;
+  --hero-border:#2A2F38;
+  --r-sm:8px;--r:12px;--r-lg:20px;--r-xl:28px;
+  --shadow-phone:0 30px 80px -20px rgba(0,0,0,.6),0 12px 32px -12px rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);background:var(--page-bg);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+  transition:background .4s ease,color .4s ease;
+}
+/* Phone frame */
+.phone{
+  width:360px;height:740px;
+  background:#0a0a0a;border-radius:54px;padding:11px;
+  box-shadow:var(--shadow-phone);
+  position:relative;flex-shrink:0;
+}
+.phone::before{
+  content:'';position:absolute;top:22px;left:50%;
+  transform:translateX(-50%);width:110px;height:30px;
+  background:#000;border-radius:22px;z-index:10;
+}
+.screen{
+  width:100%;height:100%;background:var(--screen-bg);
+  border-radius:43px;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+  transition:background .4s ease;
+}
+.status{
+  height:48px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:space-between;padding:16px 32px 0;
+  font-size:13px;font-weight:600;color:var(--text);
+}
+.status-right{display:flex;align-items:center;gap:6px}
+.status-dot{width:17px;height:10px;border:1px solid var(--text);border-radius:2px;position:relative}
+.status-dot::after{content:'';position:absolute;inset:1px;background:var(--text);border-radius:1px}
+.app-header{padding:16px 24px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.app-back,.app-icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--surface-hi);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text);
+}
+.app-wordmark{font-size:18px;font-weight:300;color:var(--text);letter-spacing:-.3px}
+.app-wordmark strong{font-weight:600}
+.content{flex:1;overflow:hidden;padding:0 24px 24px;display:flex;flex-direction:column;gap:18px}
+.page-meta{margin-top:6px}
+.eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sage-dk);
+  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+}
+:root[data-theme="dark"] .eyebrow{color:var(--sage-lt)}
+.eyebrow::before{content:'';width:16px;height:1px;background:var(--sage)}
+.page-h{font-size:27px;font-weight:700;letter-spacing:-.7px;line-height:1.1;color:var(--text)}
+.page-h em{font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--blue)}
+.page-sub-sm{font-size:13px;color:var(--text-sm);margin-top:5px;line-height:1.5}
+.btn-primary{
+  width:100%;padding:16px;background:var(--navy);color:#fff;
+  border:none;border-radius:var(--r);font-family:inherit;
+  font-size:13px;font-weight:600;letter-spacing:-.1px;
+  display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+}
+:root[data-theme="dark"] .btn-primary{background:var(--sage);color:var(--navy)}
+.btn-secondary{
+  width:100%;padding:15px;background:var(--card-bg);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--r);font-family:inherit;
+  font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+}
+
+
+.filter-overview{background:var(--sage-bg);border:1px solid rgba(163,169,131,.25);border-radius:var(--r-lg);padding:18px}
+:root[data-theme="dark"] .filter-overview{background:rgba(163,169,131,.08);border-color:rgba(163,169,131,.2)}
+.fo-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.fo-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dk)}
+:root[data-theme="dark"] .fo-label{color:var(--sage-lt)}
+.fo-pill{background:var(--card-bg);border:1px solid rgba(163,169,131,.35);padding:4px 9px;border-radius:100px;font-size:10px;font-weight:600;color:var(--sage-dk)}
+:root[data-theme="dark"] .fo-pill{color:var(--sage-lt)}
+.fo-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.3px;margin-bottom:5px}
+.fo-desc{font-size:11.5px;color:var(--text-md);line-height:1.4}
+.filter-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:13px}
+.fi-ic{width:42px;height:42px;border-radius:11px;background:var(--surface-low);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue);font-size:17px;font-weight:700}
+:root[data-theme="dark"] .fi-ic{color:var(--blue-lt)}
+.fi-body{flex:1;min-width:0}
+.fi-name{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.2px;margin-bottom:2px}
+.fi-sub{font-size:11px;color:var(--text-sm);margin-bottom:7px}
+.fi-bar{height:5px;background:var(--surface-low);border-radius:100px;overflow:hidden}
+.fi-bar-fill{height:100%;background:var(--sage);border-radius:100px}
+.fi-bar-fill.warn{background:var(--warning)}
+.fi-pct{font-size:11.5px;font-weight:700;color:var(--text);margin-left:auto}
+
+</style>
+</head>
+<body>
+<div class="phone"><div class="screen">
+<div class="status"><span>9:41</span><div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div></div><div class="app-header"><div class="app-back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="app-wordmark">simple<strong>.</strong></div><div style="width:38px"></div></div>
+<div class="content">
+
+        <div class="page-meta">
+          <div class="eyebrow">Mantenimiento</div>
+          <div class="page-h">Tus <em>filtros</em></div>
+          <div class="page-sub-sm">Estado de vida útil de cada etapa</div>
+        </div>
+        <div class="filter-overview">
+          <div class="fo-top">
+            <div class="fo-label">Sistema general</div>
+            <div class="fo-pill">3 de 4 óptimos</div>
+          </div>
+          <div class="fo-title">4 etapas de filtración</div>
+          <div class="fo-desc">Un filtro necesita cambio pronto. Podemos programar la visita técnica sin costo.</div>
+        </div>
+        <div class="filter-item">
+          <div class="fi-ic">01</div>
+          <div class="fi-body">
+            <div class="fi-name">Sedimentos</div>
+            <div class="fi-sub">Remueve partículas · 92% vida útil</div>
+            <div class="fi-bar"><div class="fi-bar-fill" style="width:92%"></div></div>
+          </div>
+          <div class="fi-pct">92%</div>
+        </div>
+        <div class="filter-item">
+          <div class="fi-ic">02</div>
+          <div class="fi-body">
+            <div class="fi-name">Carbón activado</div>
+            <div class="fi-sub">Elimina cloro y sabores · 78% vida útil</div>
+            <div class="fi-bar"><div class="fi-bar-fill" style="width:78%"></div></div>
+          </div>
+          <div class="fi-pct">78%</div>
+        </div>
+        <div class="filter-item">
+          <div class="fi-ic">03</div>
+          <div class="fi-body">
+            <div class="fi-name">Ósmosis inversa</div>
+            <div class="fi-sub">Pureza molecular · 23% vida útil</div>
+            <div class="fi-bar"><div class="fi-bar-fill warn" style="width:23%"></div></div>
+          </div>
+          <div class="fi-pct" style="color:var(--warning)">23%</div>
+        </div>
+        <div class="filter-item">
+          <div class="fi-ic">04</div>
+          <div class="fi-body">
+            <div class="fi-name">Post-carbón</div>
+            <div class="fi-sub">Sabor final · 85% vida útil</div>
+            <div class="fi-bar"><div class="fi-bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="fi-pct">85%</div>
+        </div>
+        
+</div>
+</div></div>
+</body>
+</html>

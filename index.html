@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple App — 12 Mockups Light Mode</title>
+<title>Simple App — 24 Mockups Light + Dark</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -68,16 +68,58 @@ body{
   font-size:9px;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--text-sm);
 }
+
+.section-heading{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:32px;margin-top:80px;
+}
+.section-heading:first-of-type{margin-top:0}
+.sh-line{flex:1;height:1px;background:var(--border)}
+.sh-label{
+  font-size:10px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--sage-dk);
+  display:flex;align-items:center;gap:8px;
+  white-space:nowrap;
+}
+.sh-icon{width:14px;height:14px;opacity:.7}
+
+.card.dark{
+  background:var(--navy);border-color:rgba(255,255,255,.08);color:#F5F4EE;
+}
+.card.dark:hover{
+  box-shadow:0 12px 32px -8px rgba(0,0,0,.35);
+  border-color:var(--sage);
+}
+.card.dark .card-num{
+  background:rgba(163,169,131,.12);border-color:rgba(163,169,131,.2);
+  color:var(--sage-lt);
+}
+.card.dark .card-title{color:#F5F4EE}
+.card.dark .card-desc{color:#8A8A83}
+.card.dark .card-tag{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);
+  color:#8A8A83;
+}
 </style>
 </head>
 <body>
 
 <header class="page-header">
-  <div class="page-kicker">Mockups - Light Mode</div>
-  <h1 class="page-title">Simple App <em>- 12 pantallas</em></h1>
-  <p class="page-sub">Doce vistas clave de la app Simple, rediseñadas con el sistema visual completo. Haz clic en cualquier tarjeta para ver el mockup individual.</p>
+  <div class="page-kicker">Mockups - Light + Dark</div>
+  <h1 class="page-title">Simple App <em>- 24 pantallas</em></h1>
+  <p class="page-sub">Las 12 vistas clave de la app Simple en light y dark mode. Haz clic en cualquier tarjeta para ver el mockup individual.</p>
   <div class="page-divider"></div>
 </header>
+
+<div class="section-heading">
+  <div class="sh-line"></div>
+  <div class="sh-label">
+    <svg class="sh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    Light Mode
+  </div>
+  <div class="sh-line"></div>
+</div>
 
 <div class="grid">
 
@@ -159,6 +201,103 @@ body{
   </a>
 
   <a class="card" href="simple-12-booking.html">
+    <div class="card-num">12</div>
+    <div class="card-title">Booking</div>
+    <div class="card-desc">Agendar visita técnica con fecha, horario y técnico asignado.</div>
+    <div class="card-tag">Servicios</div>
+  </a>
+
+</div>
+
+<div class="section-heading">
+  <div class="sh-line"></div>
+  <div class="sh-label">
+    <svg class="sh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    Dark Mode
+  </div>
+  <div class="sh-line"></div>
+</div>
+
+<div class="grid">
+
+  <a class="card dark" href="dark/simple-01-home-darkmode.html">
+    <div class="card-num">01</div>
+    <div class="card-title">Home</div>
+    <div class="card-desc">Dashboard principal con estado del equipo, consumo del día y accesos rápidos.</div>
+    <div class="card-tag">Core</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-02-consumos-darkmode.html">
+    <div class="card-num">02</div>
+    <div class="card-title">Consumos</div>
+    <div class="card-desc">Analítica de consumo con gráficas, KPIs y tendencias por periodo.</div>
+    <div class="card-tag">Core</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-03-equipo-darkmode.html">
+    <div class="card-num">03</div>
+    <div class="card-title">Equipo</div>
+    <div class="card-desc">Control del dispositivo SimpleOne: estado, reinicio y conexión WiFi.</div>
+    <div class="card-tag">Hardware</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-04-filtros-darkmode.html">
+    <div class="card-num">04</div>
+    <div class="card-title">Filtros</div>
+    <div class="card-desc">Estado de vida útil de cada etapa de filtración con lenguaje humano.</div>
+    <div class="card-tag">Hardware</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-05-membresia-darkmode.html">
+    <div class="card-num">05</div>
+    <div class="card-title">Membresía</div>
+    <div class="card-desc">Plan activo, método de pago, facturación y dirección de servicio.</div>
+    <div class="card-tag">Cuenta</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-06-perfil-darkmode.html">
+    <div class="card-num">06</div>
+    <div class="card-title">Perfil</div>
+    <div class="card-desc">Gestión de cuenta, configuración y opciones del usuario.</div>
+    <div class="card-tag">Cuenta</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-07-signin-darkmode.html">
+    <div class="card-num">07</div>
+    <div class="card-title">Sign In</div>
+    <div class="card-desc">Pantalla de inicio de sesión y autenticación.</div>
+    <div class="card-tag">Onboarding</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-08-onboarding-darkmode.html">
+    <div class="card-num">08</div>
+    <div class="card-title">Onboarding</div>
+    <div class="card-desc">Flujo de bienvenida para nuevos usuarios.</div>
+    <div class="card-tag">Onboarding</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-09-notificaciones-darkmode.html">
+    <div class="card-num">09</div>
+    <div class="card-title">Notificaciones</div>
+    <div class="card-desc">Centro de alertas con avisos de filtros, pagos y consumo.</div>
+    <div class="card-tag">Comunicación</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-10-checkout-darkmode.html">
+    <div class="card-num">10</div>
+    <div class="card-title">Checkout</div>
+    <div class="card-desc">Flujo de pago y confirmación de compra.</div>
+    <div class="card-tag">Servicios</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-11-soporte-darkmode.html">
+    <div class="card-num">11</div>
+    <div class="card-title">Soporte</div>
+    <div class="card-desc">Ayuda, preguntas frecuentes y chat con el equipo.</div>
+    <div class="card-tag">Comunicación</div>
+  </a>
+
+  <a class="card dark" href="dark/simple-12-booking-darkmode.html">
     <div class="card-num">12</div>
     <div class="card-title">Booking</div>
     <div class="card-desc">Agendar visita técnica con fecha, horario y técnico asignado.</div>

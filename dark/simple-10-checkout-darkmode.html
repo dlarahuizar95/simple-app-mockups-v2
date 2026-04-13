@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple App — Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+:root[data-theme="dark"]{
+  --navy:#0F2336;--navy-dk:#0a1a28;
+  --blue:#7A97AB;--blue-lt:#A8BEC9;--blue-dk:#5d7a8e;
+  --sage:#A3A983;--sage-dk:#7A7E5E;--sage-lt:#C5C7A5;--sage-bg:#F3F4EB;
+  --page-bg:#EEEDE7;--screen-bg:#F5F4EE;
+  --card-bg:#FFFFFF;--card-bg-alt:#FAF9F4;
+  --surface-hi:#FFFFFF;--surface-low:#F0EFE9;
+  --text:#0F2336;--text-md:#374151;--text-sm:#6B7280;--text-inv:#F5F4EE;
+  --border:#E0DDD4;--border-soft:#EBE8DF;--border-strong:#CBC7BB;
+  --success:#7A9D6B;--danger:#B85450;--warning:#C4913A;
+  --hero-bg:var(--navy);
+  --hero-border:transparent;
+  --r-sm:8px;--r:12px;--r-lg:20px;--r-xl:28px;
+  --shadow-phone:0 30px 80px -20px rgba(15,35,54,.25),0 12px 32px -12px rgba(15,35,54,.15);
+}
+:root[data-theme="dark"]{
+  --navy:#0a1520;--navy-dk:#060d15;
+  --blue:#9AB5C8;--blue-lt:#BDD0DB;--blue-dk:#6A8295;
+  --sage:#B8BE99;--sage-dk:#9EA384;--sage-lt:#D4D7B8;--sage-bg:#1E2319;
+  --page-bg:#0A0D12;--screen-bg:#14181E;
+  --card-bg:#1C2029;--card-bg-alt:#22272F;
+  --surface-hi:#242933;--surface-low:#0F1319;
+  --text:#F5F4EE;--text-md:#C5C5BE;--text-sm:#8A8A83;--text-inv:#0A0D12;
+  --border:#2A2F38;--border-soft:#22262E;--border-strong:#3A404B;
+  --success:#9DBD8D;--danger:#D4756F;--warning:#E0AC5D;
+  --hero-bg:#242933;
+  --hero-border:#2A2F38;
+  --r-sm:8px;--r:12px;--r-lg:20px;--r-xl:28px;
+  --shadow-phone:0 30px 80px -20px rgba(0,0,0,.6),0 12px 32px -12px rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);background:var(--page-bg);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+  transition:background .4s ease,color .4s ease;
+}
+/* Phone frame */
+.phone{
+  width:360px;height:740px;
+  background:#0a0a0a;border-radius:54px;padding:11px;
+  box-shadow:var(--shadow-phone);
+  position:relative;flex-shrink:0;
+}
+.phone::before{
+  content:'';position:absolute;top:22px;left:50%;
+  transform:translateX(-50%);width:110px;height:30px;
+  background:#000;border-radius:22px;z-index:10;
+}
+.screen{
+  width:100%;height:100%;background:var(--screen-bg);
+  border-radius:43px;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+  transition:background .4s ease;
+}
+.status{
+  height:48px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:space-between;padding:16px 32px 0;
+  font-size:13px;font-weight:600;color:var(--text);
+}
+.status-right{display:flex;align-items:center;gap:6px}
+.status-dot{width:17px;height:10px;border:1px solid var(--text);border-radius:2px;position:relative}
+.status-dot::after{content:'';position:absolute;inset:1px;background:var(--text);border-radius:1px}
+.app-header{padding:16px 24px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.app-back,.app-icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--surface-hi);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text);
+}
+.app-wordmark{font-size:18px;font-weight:300;color:var(--text);letter-spacing:-.3px}
+.app-wordmark strong{font-weight:600}
+.content{flex:1;overflow:hidden;padding:0 24px 24px;display:flex;flex-direction:column;gap:18px}
+.page-meta{margin-top:6px}
+.eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sage-dk);
+  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+}
+:root[data-theme="dark"] .eyebrow{color:var(--sage-lt)}
+.eyebrow::before{content:'';width:16px;height:1px;background:var(--sage)}
+.page-h{font-size:27px;font-weight:700;letter-spacing:-.7px;line-height:1.1;color:var(--text)}
+.page-h em{font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--blue)}
+.page-sub-sm{font-size:13px;color:var(--text-sm);margin-top:5px;line-height:1.5}
+.btn-primary{
+  width:100%;padding:16px;background:var(--navy);color:#fff;
+  border:none;border-radius:var(--r);font-family:inherit;
+  font-size:13px;font-weight:600;letter-spacing:-.1px;
+  display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+}
+:root[data-theme="dark"] .btn-primary{background:var(--sage);color:var(--navy)}
+.btn-secondary{
+  width:100%;padding:15px;background:var(--card-bg);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--r);font-family:inherit;
+  font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+}
+
+
+.plan-toggle{display:flex;gap:4px;background:var(--surface-low);padding:4px;border-radius:11px;border:1px solid var(--border)}
+.plan-toggle-opt{flex:1;font-size:11.5px;font-weight:600;padding:9px 4px;border-radius:8px;color:var(--text-sm);text-align:center;position:relative}
+.plan-toggle-opt.active{background:var(--card-bg);color:var(--text);box-shadow:0 1px 3px rgba(15,35,54,.08)}
+:root[data-theme="dark"] .plan-toggle-opt.active{background:var(--surface-hi)}
+.save-pill{position:absolute;top:-6px;right:6px;background:var(--sage);color:#fff;font-size:8px;font-weight:700;padding:2px 6px;border-radius:100px;letter-spacing:.04em}
+:root[data-theme="dark"] .save-pill{color:var(--navy)}
+.plan-card{background:var(--hero-bg);border:1px solid var(--hero-border);color:#fff;border-radius:var(--r-lg);padding:22px;position:relative;overflow:hidden}
+.plan-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(163,169,131,.2) 0%,transparent 60%)}
+.plan-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-lt);background:rgba(163,169,131,.18);border:1px solid rgba(163,169,131,.35);padding:4px 10px;border-radius:100px;margin-bottom:12px;position:relative}
+.plan-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;position:relative}
+.plan-name em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:var(--sage-lt)}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin-top:14px;position:relative}
+.plan-price-num{font-size:40px;font-weight:800;letter-spacing:-1.5px;color:#fff;line-height:1}
+.plan-price-unit{font-size:12px;color:rgba(255,255,255,.55);font-weight:500}
+.plan-features{margin-top:16px;display:flex;flex-direction:column;gap:8px;position:relative}
+.plan-feature{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.85)}
+.plan-feature-ic{color:var(--sage-lt);flex-shrink:0}
+.order-summary{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.order-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:11.5px;color:var(--text-md)}
+.order-row.total{border-top:1px solid var(--border);margin-top:4px;padding-top:12px;font-size:13px;font-weight:700;color:var(--text)}
+.pay-method{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px;display:flex;align-items:center;gap:12px}
+.pay-ic{width:36px;height:28px;background:var(--surface-low);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--blue-dk);letter-spacing:.04em}
+:root[data-theme="dark"] .pay-ic{color:var(--blue-lt)}
+.pay-body{flex:1}
+.pay-label{font-size:12px;font-weight:600;color:var(--text)}
+.pay-sub{font-size:10px;color:var(--text-sm);margin-top:1px}
+.pay-chev{color:var(--text-sm)}
+
+</style>
+</head>
+<body>
+<div class="phone"><div class="screen">
+<div class="status"><span>9:41</span><div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div></div><div class="app-header"><div class="app-back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="app-wordmark">simple<strong>.</strong></div><div style="width:38px"></div></div>
+<div class="content">
+
+        <div class="page-meta">
+          <div class="eyebrow">Mejora tu plan</div>
+          <div class="page-h">Simple <em>Premium</em></div>
+          <div class="page-sub-sm">Más litros, prioridad en soporte</div>
+        </div>
+        <div class="plan-toggle">
+          <div class="plan-toggle-opt">Mensual</div>
+          <div class="plan-toggle-opt active">Anual<span class="save-pill">-20%</span></div>
+        </div>
+        <div class="plan-card">
+          <div class="plan-badge">● Más popular</div>
+          <div class="plan-name">Simple <em>Premium</em></div>
+          <div class="plan-price">
+            <span class="plan-price-num">$559</span>
+            <span class="plan-price-unit">MXN / mes</span>
+          </div>
+          <div class="plan-features">
+            <div class="plan-feature">
+              <svg class="plan-feature-ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              1,000 L mensuales incluidos
+            </div>
+            <div class="plan-feature">
+              <svg class="plan-feature-ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Cambio de filtros sin costo
+            </div>
+            <div class="plan-feature">
+              <svg class="plan-feature-ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Soporte técnico prioritario
+            </div>
+            <div class="plan-feature">
+              <svg class="plan-feature-ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Reportes mensuales de calidad
+            </div>
+          </div>
+        </div>
+        <div class="order-summary">
+          <div class="order-row"><span>Plan Premium (12 meses)</span><span>$6,708</span></div>
+          <div class="order-row" style="color:var(--sage-dk);font-weight:600"><span>Descuento anual</span><span>−$1,341</span></div>
+          <div class="order-row total"><span>Total hoy</span><span>$5,367 MXN</span></div>
+        </div>
+        <div class="pay-method">
+          <div class="pay-ic">AMEX</div>
+          <div class="pay-body">
+            <div class="pay-label">American Express ···· 1017</div>
+            <div class="pay-sub">Cambiar método de pago</div>
+          </div>
+          <div class="pay-chev">›</div>
+        </div>
+        <button class="btn-primary">Confirmar y pagar →</button>
+        
+</div>
+</div></div>
+</body>
+</html>
