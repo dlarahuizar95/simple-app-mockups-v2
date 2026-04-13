@@ -406,6 +406,129 @@ body{
 .ts-lbl{font-size:9px;color:var(--text-sm);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
 .ts-sample{color:var(--text);display:block}
 
+/* ══════════════════════════════════════════ */
+/* SCREEN 7: NOTIFICACIONES                    */
+/* ══════════════════════════════════════════ */
+.notif-group-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-sm);margin-bottom:6px;margin-top:4px}
+.notif-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:flex-start;gap:12px}
+.notif-ic{width:32px;height:32px;border-radius:8px;background:var(--surface-low);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.notif-ic.warn{background:rgba(196,145,58,.12);color:var(--warning)}
+.notif-ic.success{background:rgba(122,157,107,.12);color:var(--success)}
+.notif-ic.info{background:rgba(122,151,171,.12);color:var(--blue)}
+.notif-ic.tip{background:var(--sage-bg);color:var(--sage-dk)}
+:root[data-theme="dark"] .notif-ic.warn{background:rgba(224,172,93,.1);color:var(--warning)}
+:root[data-theme="dark"] .notif-ic.success{background:rgba(157,189,141,.1);color:var(--success)}
+:root[data-theme="dark"] .notif-ic.info{background:rgba(154,181,200,.1);color:var(--blue)}
+:root[data-theme="dark"] .notif-ic.tip{background:rgba(163,169,131,.1);color:var(--sage-lt)}
+.notif-body{flex:1;min-width:0}
+.notif-title{font-size:11px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:2px}
+.notif-time{font-size:9.5px;color:var(--text-sm)}
+.notif-accent{border-left:3px solid var(--warning)}
+
+/* ══════════════════════════════════════════ */
+/* SCREEN 8: SOPORTE / CHAT                    */
+/* ══════════════════════════════════════════ */
+.search-bar{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;display:flex;align-items:center;gap:10px;color:var(--text-sm);font-size:12px}
+.search-bar-icon{flex-shrink:0;color:var(--text-sm)}
+.faq-list{display:flex;flex-direction:column;gap:2px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.faq-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--border-soft)}
+.faq-item:last-child{border-bottom:none}
+.faq-ic{width:28px;height:28px;border-radius:7px;background:var(--surface-low);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
+:root[data-theme="dark"] .faq-ic{color:var(--blue-lt)}
+.faq-lbl{flex:1;font-size:12px;font-weight:600;color:var(--text)}
+.faq-chev{color:var(--text-sm);font-size:13px}
+.cta-btn{width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:var(--r);font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;text-align:center;letter-spacing:-.1px}
+:root[data-theme="dark"] .cta-btn{background:var(--sage);color:var(--navy)}
+
+/* ══════════════════════════════════════════ */
+/* SCREEN 9: AGENDAR SERVICIO                  */
+/* ══════════════════════════════════════════ */
+.date-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px}
+.date-card-title{font-size:12px;font-weight:700;color:var(--text);letter-spacing:-.2px;margin-bottom:12px}
+.date-pills{display:flex;gap:8px;flex-wrap:wrap}
+.date-pill{padding:8px 14px;border-radius:100px;font-size:11px;font-weight:600;background:var(--surface-low);border:1px solid var(--border);color:var(--text);cursor:pointer}
+.date-pill.active{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme="dark"] .date-pill.active{background:var(--sage);border-color:var(--sage);color:var(--navy)}
+.slot-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-sm);margin-bottom:8px}
+.slot-row{display:flex;gap:10px}
+.slot-card{flex:1;padding:12px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);font-size:12px;font-weight:600;color:var(--text);text-align:center;cursor:pointer}
+.slot-card.active{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme="dark"] .slot-card.active{background:var(--sage);border-color:var(--sage);color:var(--navy)}
+.tech-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:14px;display:flex;align-items:center;gap:14px}
+.tech-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0}
+:root[data-theme="dark"] .tech-avatar{background:linear-gradient(135deg,var(--blue-dk) 0%,var(--blue) 100%)}
+.tech-body{flex:1}
+.tech-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-sm);margin-bottom:3px}
+.tech-name{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.2px}
+.tech-rating{font-size:11px;color:var(--sage-dk);font-weight:600;margin-top:1px}
+:root[data-theme="dark"] .tech-rating{color:var(--sage-lt)}
+
+/* ══════════════════════════════════════════ */
+/* SCREEN 10: CALIDAD DEL AGUA                 */
+/* ══════════════════════════════════════════ */
+.quality-badge{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sage-bg) 0%,rgba(163,169,131,.2) 100%);
+  border:3px solid var(--sage);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin:4px auto 6px;
+}
+:root[data-theme="dark"] .quality-badge{background:rgba(163,169,131,.1)}
+.qb-num{font-size:38px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:var(--sage-dk)}
+:root[data-theme="dark"] .qb-num{color:var(--sage-lt)}
+.qb-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-sm);margin-top:4px}
+.metric-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;display:flex;align-items:center;gap:12px}
+.metric-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.metric-dot.good{background:var(--success)}
+.metric-body{flex:1;min-width:0}
+.metric-name{font-size:11px;font-weight:700;color:var(--text);letter-spacing:-.1px}
+.metric-val{font-size:10px;color:var(--text-sm);margin-top:1px}
+.metric-status{font-size:9.5px;font-weight:600;color:var(--sage-dk);margin-left:auto;flex-shrink:0}
+:root[data-theme="dark"] .metric-status{color:var(--sage-lt)}
+.note-card{background:var(--card-bg-alt);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;font-size:10px;color:var(--text-sm);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.note-card-ic{flex-shrink:0;color:var(--text-sm)}
+
+/* ══════════════════════════════════════════ */
+/* SCREEN 11: HISTORIAL DE PAGOS               */
+/* ══════════════════════════════════════════ */
+.pay-item{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:12px}
+.pay-body{flex:1;min-width:0}
+.pay-date{font-size:11px;font-weight:600;color:var(--text)}
+.pay-sub{font-size:9.5px;color:var(--text-sm);margin-top:1px}
+.pay-amount{font-size:13px;font-weight:800;color:var(--text);letter-spacing:-.3px;margin-left:auto;margin-right:10px}
+.pay-pill{font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0}
+.pay-pill.paid{background:rgba(122,157,107,.12);color:var(--success);border:1px solid rgba(122,157,107,.25)}
+:root[data-theme="dark"] .pay-pill.paid{background:rgba(157,189,141,.1);color:var(--success);border-color:rgba(157,189,141,.2)}
+
+/* ══════════════════════════════════════════ */
+/* SCREEN 12: REFERIDOS                        */
+/* ══════════════════════════════════════════ */
+.ref-card{
+  background:var(--navy);color:#fff;border-radius:var(--r-lg);
+  padding:20px;position:relative;overflow:hidden;text-align:center;
+}
+:root[data-theme="dark"] .ref-card{background:var(--surface-hi);border:1px solid var(--border)}
+.ref-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(163,169,131,.2) 0%,transparent 60%);pointer-events:none}
+.ref-title{font-size:17px;font-weight:700;color:#fff;position:relative;margin-bottom:4px}
+.ref-sub{font-size:11px;color:rgba(255,255,255,.55);position:relative;margin-bottom:14px}
+.ref-code-box{background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);border-radius:var(--r);padding:10px;position:relative;margin-bottom:14px}
+.ref-code-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px}
+.ref-code{font-size:20px;font-weight:800;color:#fff;letter-spacing:.1em}
+.ref-stats{display:flex;justify-content:center;gap:24px;position:relative}
+.ref-stat-item{text-align:center}
+.ref-stat-val{font-size:16px;font-weight:800;color:#fff}
+.ref-stat-lbl{font-size:9px;color:rgba(255,255,255,.5);margin-top:2px}
+.ref-friend{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:12px}
+.ref-friend-avatar{width:32px;height:32px;border-radius:50%;background:var(--surface-low);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--text);flex-shrink:0}
+.ref-friend-body{flex:1;min-width:0}
+.ref-friend-name{font-size:11px;font-weight:600;color:var(--text)}
+.ref-friend-date{font-size:9.5px;color:var(--text-sm);margin-top:1px}
+.ref-friend-status{font-size:9px;font-weight:700;padding:3px 8px;border-radius:100px;flex-shrink:0}
+.ref-friend-status.active{background:rgba(122,157,107,.12);color:var(--success);border:1px solid rgba(122,157,107,.25)}
+.ref-friend-status.pending{background:rgba(196,145,58,.1);color:var(--warning);border:1px solid rgba(196,145,58,.2)}
+:root[data-theme="dark"] .ref-friend-status.active{background:rgba(157,189,141,.1);color:var(--success);border-color:rgba(157,189,141,.2)}
+:root[data-theme="dark"] .ref-friend-status.pending{background:rgba(224,172,93,.08);color:var(--warning);border-color:rgba(224,172,93,.15)}
+
 @media(max-width:768px){
   .handoff-grid{grid-template-columns:1fr 1fr}
   .mockup-row{justify-content:center}
@@ -431,7 +554,7 @@ body{
 <header class="page-header">
   <div class="page-kicker">Mockups · Versión 2</div>
   <h1 class="page-title">Simple App <em>— rediseño</em></h1>
-  <p class="page-sub">Seis pantallas clave rediseñadas aplicando el sistema visual de Simple. Ahora con light y dark mode, y fondo gris cálido más premium. Toggle en la esquina superior derecha.</p>
+  <p class="page-sub">Doce pantallas clave rediseñadas aplicando el sistema visual de Simple. Ahora con light y dark mode, y fondo gris cálido más premium. Toggle en la esquina superior derecha.</p>
   <div class="page-divider"></div>
 </header>
 
@@ -845,6 +968,388 @@ body{
         </div>
       </div></div>
       <div class="phone-caption">06 · Perfil<span>Cuenta</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section">
+  <div class="section-label">04 · Comunicación y alertas</div>
+  <h2 class="section-title">Notificaciones y soporte</h2>
+  <p class="section-desc">Centro de alertas contextuales y canal de ayuda. Información proactiva que reduce fricción.</p>
+
+  <div class="mockup-row">
+
+    <!-- SCREEN 7: NOTIFICACIONES -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Centro de alertas</div>
+            <div class="page-h">Mis <em>notificaciones</em></div>
+          </div>
+          <div class="notif-group-label">Hoy</div>
+          <div class="notif-item notif-accent">
+            <div class="notif-ic warn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg></div>
+            <div class="notif-body">
+              <div class="notif-title">Tu filtro de ósmosis necesita cambio</div>
+              <div class="notif-time">Hace 2 horas · Filtro al 23%</div>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-ic success"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+            <div class="notif-body">
+              <div class="notif-title">Pago de $349 procesado</div>
+              <div class="notif-time">Ayer</div>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-ic info"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg></div>
+            <div class="notif-body">
+              <div class="notif-title">Consumo 40% mayor al promedio</div>
+              <div class="notif-time">Hace 2 días</div>
+            </div>
+          </div>
+          <div class="notif-group-label">Esta semana</div>
+          <div class="notif-item">
+            <div class="notif-ic info"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div class="notif-body">
+              <div class="notif-title">Visita técnica confirmada</div>
+              <div class="notif-time">Lun 12 may</div>
+            </div>
+          </div>
+          <div class="notif-item">
+            <div class="notif-ic tip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+            <div class="notif-body">
+              <div class="notif-title">Tip: revisa fugas si el consumo sube</div>
+              <div class="notif-time">Mar 13 may</div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">07 · Notificaciones<span>Centro de alertas</span></div>
+    </div>
+
+    <!-- SCREEN 8: SOPORTE / CHAT -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Soporte</div>
+            <div class="page-h"><em>Ayuda</em></div>
+          </div>
+          <div class="search-bar">
+            <div class="search-bar-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+            Buscar en preguntas frecuentes…
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+              <div class="faq-lbl">¿Cómo cambio mi filtro?</div>
+              <div class="faq-chev">›</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+              <div class="faq-lbl">¿Qué hago si no sale agua?</div>
+              <div class="faq-chev">›</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+              <div class="faq-lbl">¿Cómo cancelo mi plan?</div>
+              <div class="faq-chev">›</div>
+            </div>
+          </div>
+          <div style="margin-top:auto">
+            <button class="cta-btn">Iniciar chat con soporte</button>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">08 · Soporte<span>Ayuda y chat</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section">
+  <div class="section-label">05 · Servicios</div>
+  <h2 class="section-title">Agenda y calidad</h2>
+  <p class="section-desc">Programa visitas técnicas y monitorea la calidad de tu agua en tiempo real.</p>
+
+  <div class="mockup-row">
+
+    <!-- SCREEN 9: AGENDAR SERVICIO -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Mantenimiento</div>
+            <div class="page-h">Agendar <em>servicio</em></div>
+          </div>
+          <div class="date-card">
+            <div class="date-card-title">Próximas fechas disponibles</div>
+            <div class="date-pills">
+              <div class="date-pill active">Lun 19 may</div>
+              <div class="date-pill">Mié 21 may</div>
+              <div class="date-pill">Vie 23 may</div>
+            </div>
+          </div>
+          <div>
+            <div class="slot-label">Horario</div>
+            <div class="slot-row">
+              <div class="slot-card active">9:00 – 12:00</div>
+              <div class="slot-card">14:00 – 17:00</div>
+            </div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-avatar">JM</div>
+            <div class="tech-body">
+              <div class="tech-label">Técnico asignado</div>
+              <div class="tech-name">José Martínez</div>
+              <div class="tech-rating">4.9 ★</div>
+            </div>
+          </div>
+          <div style="margin-top:auto">
+            <button class="cta-btn">Confirmar visita</button>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">09 · Agendar servicio<span>Mantenimiento</span></div>
+    </div>
+
+    <!-- SCREEN 10: CALIDAD DEL AGUA -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Tu agua</div>
+            <div class="page-h"><em>Calidad</em></div>
+          </div>
+          <div class="quality-badge">
+            <div class="qb-num">98</div>
+            <div class="qb-label">Índice de pureza</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-dot good"></div>
+            <div class="metric-body">
+              <div class="metric-name">TDS</div>
+              <div class="metric-val">45 ppm</div>
+            </div>
+            <div class="metric-status">Excelente</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-dot good"></div>
+            <div class="metric-body">
+              <div class="metric-name">pH</div>
+              <div class="metric-val">7.2</div>
+            </div>
+            <div class="metric-status">Óptimo</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-dot good"></div>
+            <div class="metric-body">
+              <div class="metric-name">Cloro</div>
+              <div class="metric-val">0.0 mg/L</div>
+            </div>
+            <div class="metric-status">Libre</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-dot good"></div>
+            <div class="metric-body">
+              <div class="metric-name">Dureza</div>
+              <div class="metric-val">12 mg/L</div>
+            </div>
+            <div class="metric-status">Blanda</div>
+          </div>
+          <div class="note-card">
+            <div class="note-card-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+            Última medición: hace 3 horas · Actualización automática
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">10 · Calidad<span>Tu agua</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="section">
+  <div class="section-label">06 · Historial y referidos</div>
+  <h2 class="section-title">Pagos e invitaciones</h2>
+  <p class="section-desc">Historial completo de pagos y programa de referidos para crecer la comunidad Simple.</p>
+
+  <div class="mockup-row">
+
+    <!-- SCREEN 11: HISTORIAL DE PAGOS -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Pagos</div>
+            <div class="page-h"><em>Historial</em></div>
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi-item"><div class="kpi-lbl">Total pagado</div><div class="kpi-val">$2,094</div></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi-item"><div class="kpi-lbl">Pagos</div><div class="kpi-val">6</div></div>
+            <div class="kpi-sep"></div>
+            <div class="kpi-item"><div class="kpi-lbl">Próximo</div><div class="kpi-val">04 may</div></div>
+          </div>
+          <div class="pay-item">
+            <div class="pay-body">
+              <div class="pay-date">04 abr 2026</div>
+              <div class="pay-sub">Mensualidad</div>
+            </div>
+            <div class="pay-amount">$349</div>
+            <div class="pay-pill paid">Pagado</div>
+          </div>
+          <div class="pay-item">
+            <div class="pay-body">
+              <div class="pay-date">04 mar 2026</div>
+              <div class="pay-sub">Mensualidad</div>
+            </div>
+            <div class="pay-amount">$349</div>
+            <div class="pay-pill paid">Pagado</div>
+          </div>
+          <div class="pay-item">
+            <div class="pay-body">
+              <div class="pay-date">04 feb 2026</div>
+              <div class="pay-sub">Mensualidad</div>
+            </div>
+            <div class="pay-amount">$349</div>
+            <div class="pay-pill paid">Pagado</div>
+          </div>
+          <div class="pay-item">
+            <div class="pay-body">
+              <div class="pay-date">04 ene 2026</div>
+              <div class="pay-sub">Mensualidad</div>
+            </div>
+            <div class="pay-amount">$349</div>
+            <div class="pay-pill paid">Pagado</div>
+          </div>
+          <div class="pay-item">
+            <div class="pay-body">
+              <div class="pay-date">Instalación</div>
+              <div class="pay-sub">Cargo inicial</div>
+            </div>
+            <div class="pay-amount">$698</div>
+            <div class="pay-pill paid">Pagado</div>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">11 · Historial<span>Pagos</span></div>
+    </div>
+
+    <!-- SCREEN 12: REFERIDOS -->
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="status">
+          <span>10:26</span>
+          <div class="status-right"><span>5G</span><span>●●●</span><div class="status-dot"></div></div>
+        </div>
+        <div class="app-header">
+          <div class="app-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+          <div class="app-wordmark">simple<strong>.</strong></div>
+          <div style="width:34px"></div>
+        </div>
+        <div class="content">
+          <div class="page-meta">
+            <div class="eyebrow">Referidos</div>
+            <div class="page-h">Invita <em>amigos</em></div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-title">Gana $200 por cada amigo</div>
+            <div class="ref-sub">Tu amigo recibe 1 mes gratis</div>
+            <div class="ref-code-box">
+              <div class="ref-code-label">Tu código</div>
+              <div class="ref-code">DANI2026</div>
+            </div>
+            <div class="ref-stats">
+              <div class="ref-stat-item">
+                <div class="ref-stat-val">3</div>
+                <div class="ref-stat-lbl">Invitados</div>
+              </div>
+              <div class="ref-stat-item">
+                <div class="ref-stat-val">$600</div>
+                <div class="ref-stat-lbl">Acumulados</div>
+              </div>
+            </div>
+          </div>
+          <button class="cta-btn">Compartir enlace</button>
+          <div class="ref-friend">
+            <div class="ref-friend-avatar">MR</div>
+            <div class="ref-friend-body">
+              <div class="ref-friend-name">María Rodríguez</div>
+              <div class="ref-friend-date">Registrada · 28 mar</div>
+            </div>
+            <div class="ref-friend-status active">Activo</div>
+          </div>
+          <div class="ref-friend">
+            <div class="ref-friend-avatar">CP</div>
+            <div class="ref-friend-body">
+              <div class="ref-friend-name">Carlos Pérez</div>
+              <div class="ref-friend-date">Registrado · 15 mar</div>
+            </div>
+            <div class="ref-friend-status active">Activo</div>
+          </div>
+          <div class="ref-friend">
+            <div class="ref-friend-avatar">AL</div>
+            <div class="ref-friend-body">
+              <div class="ref-friend-name">Ana López</div>
+              <div class="ref-friend-date">Invitada · 10 abr</div>
+            </div>
+            <div class="ref-friend-status pending">Pendiente</div>
+          </div>
+        </div>
+      </div></div>
+      <div class="phone-caption">12 · Referidos<span>Invita amigos</span></div>
     </div>
 
   </div>
